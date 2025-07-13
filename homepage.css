@@ -1,0 +1,155 @@
+/* main */
+.homepage-container {
+  max-width: 1600px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.movie-grid-section {
+  padding: 1.5rem 5%;
+  margin: 1rem 0;
+}
+
+.movie-grid-section h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1.8rem;
+}
+
+.movie-grid-section hr {
+  border: 2px solid var(--secondary-color);
+}
+
+/* Movie grid */
+
+.movie-grid {
+  display: grid;
+  padding: 2rem 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: start;
+  justify-items: center;
+  gap: 1.2rem;
+}
+
+.movie-card {
+  margin: 0.5rem 0;
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.movie-card img {
+  height: 25rem;
+  cursor: pointer;
+  border: 6px solid white;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  transition: all 0.2s;
+}
+
+.movie-card .movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background: rgba(22, 22, 22, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.movie-card:hover img {
+  border-color: var(--primary-color);
+  filter: blur(1px);
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.movie-card .movie-genre {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card .movie-genre p {
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.movie-card .view-details {
+  z-index: 3;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.4s ease;
+}
+
+.movie-card:hover .view-details {
+  transform: translateY(-10px);
+}
+
+.movie-card .view-details:hover {
+  background-color: #4e8c32;
+}
+
+.movie-card h3 {
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.movie-card p {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: gray;
+}
+
+@media (max-width: 1200px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-grid {
+    padding: 1rem 0.5rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .movie-card img {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+  }
+}

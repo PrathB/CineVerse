@@ -84,8 +84,12 @@ function renderMovies(movies, grid) {
       <h3>${title}</h3>
       <p>${year}</p>
     `;
-
     grid.appendChild(card);
+
+    const viewBtn = card.querySelector(".view-details");
+    viewBtn.addEventListener("click", () => {
+      window.location.href = `movie.html?id=${movie.id}`;
+    });
   });
 }
 

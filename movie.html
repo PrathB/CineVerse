@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineVerse</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="movie-details.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-div">
+        <h1>CineVerse</h1>
+        <div class="searchbar">
+          <input id="searchInput" type="text" placeholder="Search movies..." />
+          <button id="searchBtn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <!-- mobile search icon (hidden for tablet,desktop) -->
+        <div class="mobile-search-icon">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+
+      <!-- mobile search bar (hidden for tablet,desktop) -->
+      <div class="mobile-search-div">
+        <input
+          id="mobileSearchInput"
+          type="text"
+          placeholder="Search movies..."
+        />
+        <button id="mobileSearchBtn">Search</button>
+      </div>
+    </header>
+
+    <main class="movie-details-container">
+      <section class="movie-info-section">
+        <div class="movie-info-div">
+          <img
+            class="poster-image"
+            src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/2VUmvqsHb6cEtdfscEA6fqqVzLg.jpg"
+            alt="Movie Poster"
+          />
+          <div class="movie-info-text">
+            <div class="movie-meta">
+              <h1 class="title">Ballerina</h1>
+              <h3 class="year">2025</h3>
+
+              <p>Action, Thriller, Crime</p>
+              <p>Runtime: 2h 5m</p>
+
+              <p class="pg-rating">R</p>
+            </div>
+
+            <div class="movie-overview">
+              <p class="tagline">Vengeance has a new face.</p>
+              <div class="overview-div">
+                <h3>Overview</h3>
+                <p>
+                  Taking place during the events of John Wick: Chapter 3 –
+                  Parabellum, Eve Macarro begins her training in the assassin
+                  traditions of the Ruska Roma.
+                </p>
+              </div>
+            </div>
+
+            <div class="user-score-container">
+              <div class="user-score">
+                <div class="circle">
+                  <div class="inner-circle">
+                    <span class="score-text">74%</span>
+                  </div>
+                </div>
+              </div>
+               <div class="score-label">User<br />Score</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="cast-section">
+        <h3>Top Cast</h3>
+        <div class="cast-list" id="cast-list"></div>
+      </section>
+
+      <section class="trailer-section">
+        <h3>Trailer</h3>
+        <div id="trailer"></div>
+      </section>
+
+      <section class="similar-section">
+        <h3>Similar Movies</h3>
+        <div class="similar-list" id="similar-movies"></div>
+      </section> -->
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
