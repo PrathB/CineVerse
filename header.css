@@ -14,8 +14,9 @@ header {
   justify-content: space-between;
 }
 
-.header-div h1 {
+.header-logo {
   color: var(--primary-color);
+  cursor: pointer;
   font-size: 2rem;
   font-style: italic;
 }

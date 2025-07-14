@@ -28,11 +28,6 @@ const options = {
   },
 };
 
-// Toggle mobile search bar
-document.querySelector(".mobile-search-icon").addEventListener("click", () => {
-  document.querySelector(".mobile-search-div").classList.toggle("active");
-});
-
 // Fetch and cache genre names
 async function fetchGenreMap() {
   const response = await fetch(genreUrl, options);
