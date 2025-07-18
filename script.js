@@ -30,11 +30,15 @@ const options = {
 
 // Fetch and cache genre names
 async function fetchGenreMap() {
-  const response = await fetch(genreUrl, options);
-  const data = await response.json();
-  data.genres.forEach(({ id, name }) => {
-    genreMap[id] = name;
-  });
+  try {
+    const response = await fetch(genreUrl, options);
+    const data = await response.json();
+    data.genres.forEach(({ id, name }) => {
+      genreMap[id] = name;
+    });
+  } catch (error) {
+    console.error("Fetch error: ", error);
+  }
 }
 
 // Fetch and render movies for given endpoint
@@ -59,7 +63,7 @@ function renderMovies(movies, grid) {
     const year = movie.release_date?.split("-")[0] || "N/A";
     const poster = movie.poster_path
       ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}`
-      : "https://via.placeholder.com/250x400?text=No+Image";
+      : "placeholder-poster-image.jpg";
 
     const card = document.createElement("div");
     card.className = "movie-card";

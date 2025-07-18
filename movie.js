@@ -1,12 +1,126 @@
-const params = new URLSearchParams(window.location.search);
-const movieId = params.get("id");
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization: `Bearer ${TMDB_API_KEY}`,
+  },
+};
 
-// Validate: check id is not null and is a number
-if (!movieId || isNaN(movieId)) {
-  alert("Invalid movie ID");
-  window.location.href = "index.html";
-} else {
-  fetchMovieDetails(movieId);
+function convertMinutes(mins) {
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return `${h}h ${m}m`;
 }
 
-function fetchMovieDetails(movieId) {}
+async function fetchMovieDetails(movieId) {
+  const [res1, res2] = await Promise.all([
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      options
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/release_dates`,
+      options
+    ),
+  ]);
+
+  const movieDetails = await res1.json();
+  const releaseDates = await res2.json();
+
+  const posterPath = movieDetails.poster_path
+    ? `${TMDB_IMAGE_BASE_URL}${movieDetails.poster_path}`
+    : "placeholder-poster-image.jpg";
+
+  const movieInfoSection = document.querySelector(".movie-info-section");
+
+  movieInfoSection
+    .querySelector(".poster-image")
+    .setAttribute("src", posterPath);
+
+  document.documentElement.style.setProperty(
+    "--backdrop",
+    `url("${TMDB_IMAGE_BASE_URL}${movieDetails.backdrop_path}")`
+  );
+
+  movieInfoSection.querySelector(".title").textContent = movieDetails.title;
+
+  movieInfoSection.querySelector(".year").textContent = new Date(
+    movieDetails.release_date
+  ).getFullYear();
+
+  movieInfoSection.querySelector(".genre-tags").textContent =
+    movieDetails.genres.map((genre) => genre.name).join(" / ");
+
+  movieInfoSection.querySelector("#runtime").textContent = convertMinutes(
+    movieDetails.runtime
+  );
+
+  const usRelease = releaseDates.results.find(
+    (item) => item.iso_3166_1 === "US"
+  );
+  let certification = "";
+
+  if (usRelease && usRelease.release_dates.length > 0) {
+    certification = usRelease.release_dates[0].certification;
+  } else {
+    certification = "NA";
+  }
+  movieInfoSection.querySelector(".pg-rating").textContent = certification;
+
+  movieInfoSection.querySelector(".tagline").textContent = movieDetails.tagline;
+
+  movieInfoSection.querySelector(".overview-div p").textContent =
+    movieDetails.overview;
+
+  const userScore = Math.floor(movieDetails.vote_average * 10);
+  movieInfoSection.querySelector(".score-text").textContent = userScore;
+
+  document.documentElement.style.setProperty("--score", `${userScore}%`);
+
+  const additonalInfoSection = document.querySelector(
+    ".additional-info-section"
+  );
+
+  additonalInfoSection.querySelector("#release-status").textContent =
+    movieDetails.status;
+
+  const releaseDate = new Date(movieDetails.release_date);
+  additonalInfoSection.querySelector(
+    "#release-date"
+  ).textContent = `${releaseDate.getDate()} ${releaseDate.toLocaleString(
+    "default",
+    { month: "short" }
+  )}, ${releaseDate.getFullYear()}`;
+
+  additonalInfoSection.querySelector("#original-language").textContent =
+    movieDetails.original_language;
+
+  additonalInfoSection.querySelector("#origin-country").textContent =
+    movieDetails.origin_country[0];
+  additonalInfoSection.querySelector(
+    "#budget"
+  ).textContent = `$${movieDetails.budget.toLocaleString()}`;
+  additonalInfoSection.querySelector(
+    "#revenue"
+  ).textContent = `$${movieDetails.revenue.toLocaleString()}`;
+}
+
+async function initMoviePage(movieId) {
+  await Promise.all([
+    fetchMovieDetails(movieId),
+    // fetchMovieCast(movieId),
+    // fetchSimilarMovies(movieId),
+  ]);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const movieId = params.get("id");
+  // Validate: check id is not null and is a number
+  if (!movieId || isNaN(movieId)) {
+    alert("Invalid movie ID");
+    window.location.href = "index.html";
+  } else {
+    initMoviePage(movieId);
+  }
+});

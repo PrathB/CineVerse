@@ -42,28 +42,29 @@
 
     <main class="movie-details-container">
       <section class="movie-info-section">
+        <div class="movie-backdrop-div"></div>
         <div class="movie-info-div">
           <img
             class="poster-image"
-            src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/2VUmvqsHb6cEtdfscEA6fqqVzLg.jpg"
+            src="placeholder-poster-image.jpg"
             alt="Movie Poster"
           />
           <div class="movie-info-text">
             <div class="movie-meta">
-              <h1 class="title">Ballerina</h1>
-              <h3 class="year">2025</h3>
+              <h1 class="title"></h1>
+              <h3 class="year"></h3>
 
-              <p>Action, Thriller, Crime</p>
-              <p>Runtime: <span id="runtime">2h 5m</span></p>
+              <p class="genre-tags"></p>
+              <p>Runtime: <span id="runtime"></span></p>
 
-              <p class="pg-rating">R</p>
+              <p class="pg-rating"></p>
             </div>
 
             <div class="user-score-container">
               <div class="user-score">
                 <div class="circle">
                   <div class="inner-circle">
-                    <span class="score-text">74%</span>
+                    <span class="score-text">NA</span>
                   </div>
                 </div>
               </div>
@@ -71,19 +72,15 @@
             </div>
 
             <div class="movie-overview">
-              <p class="tagline">Vengeance has a new face.</p>
+              <p class="tagline"></p>
               <div class="overview-div">
                 <h3>Overview</h3>
-                <p>
-                  Taking place during the events of John Wick: Chapter 3 –
-                  Parabellum, Eve Macarro begins her training in the assassin
-                  traditions of the Ruska Roma.
-                </p>
+                <p></p>
               </div>
             </div>
 
             <div class="movie-director">
-              <h4>Len Wiseman</h4>
+              <h4></h4>
               <p>Director</p>
             </div>
           </div>
@@ -92,27 +89,20 @@
 
       <section class="additional-info-section">
         <div class="movie-additional-info">
+          <div><strong>Status: </strong><span id="release-status"></span></div>
           <div>
-            <strong>Status:</strong> <span id="release-status">Released</span>
+            <strong>Release Date: </strong><span id="release-date"></span>
           </div>
           <div>
-            <strong>Release Date:</strong
-            ><span id="release-date"> June 15, 2025</span>
+            <strong>Language: </strong>
+            <span id="original-language"></span>
           </div>
           <div>
-            <strong>Language:</strong>
-            <span id="original-language">English</span>
+            <strong>Country: </strong>
+            <span id="origin-country"></span>
           </div>
-          <div>
-            <strong>Country:</strong>
-            <span id="origin-country">United States</span>
-          </div>
-          <div>
-            <strong>Budget:</strong> <span id="budget"> $45,000,000</span>
-          </div>
-          <div>
-            <strong>Revenue:</strong><span id="revenue"> $170,000,000</span>
-          </div>
+          <div><strong>Budget: </strong> <span id="budget"></span></div>
+          <div><strong>Revenue: </strong><span id="revenue"></span></div>
         </div>
       </section>
 
@@ -216,25 +206,40 @@
         <h2>Similar Movies</h2>
         <div class="similar-list">
           <div class="similar-card">
-            <img src="https://media.themoviedb.org/t/p/w500/vtu6H4NWnQVqEp3aanUq3hNeeot.jpg" alt="Movie Poster" />
+            <img
+              src="https://media.themoviedb.org/t/p/w500/vtu6H4NWnQVqEp3aanUq3hNeeot.jpg"
+              alt="Movie Poster"
+            />
             <p class="movie-title">Death Proof</p>
           </div>
           <div class="similar-card">
-            <img src="https://media.themoviedb.org/t/p/w500/7WyMvoqPYJe5g1ENsbLTv40pUrX.jpg" alt="Movie Poster" />
+            <img
+              src="https://media.themoviedb.org/t/p/w500/7WyMvoqPYJe5g1ENsbLTv40pUrX.jpg"
+              alt="Movie Poster"
+            />
             <p class="movie-title">Lara Croft: Tomb Raider</p>
           </div>
           <div class="similar-card">
-            <img src="https://media.themoviedb.org/t/p/w500/ylIEGeAr2ygSClK4FDj9mi2Ah22.jpg" alt="Movie Poster" />
-            <p class="movie-title">Lara Croft: Tomb Raider - The Cradle of Life</p>
+            <img
+              src="https://media.themoviedb.org/t/p/w500/ylIEGeAr2ygSClK4FDj9mi2Ah22.jpg"
+              alt="Movie Poster"
+            />
+            <p class="movie-title">
+              Lara Croft: Tomb Raider - The Cradle of Life
+            </p>
           </div>
           <div class="similar-card">
-            <img src="https://media.themoviedb.org/t/p/w500/bUeiwBQdupBLQthMCHKV7zv56uv.jpg" alt="Movie Poster" />
-            <p class="movie-title">Training Day</p>
+            <img
+              src="https://media.themoviedb.org/t/p/w500/bUeiwBQdupBLQthMCHKV7zv56uv.jpg"
+              alt="Movie Poster"
+            />
+            <p class="title">Training Day</p>
           </div>
         </div>
       </section>
     </main>
-
+    <script src="config.js"></script>
     <script src="header.js"></script>
+    <script src="movie.js"></script>
   </body>
 </html>
