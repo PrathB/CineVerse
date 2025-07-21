@@ -58,13 +58,16 @@ async function fetchMovieDetails(movieId) {
   const usRelease = releaseDates.results.find(
     (item) => item.iso_3166_1 === "US"
   );
-  let certification = "";
+  let certification = "N/A";
 
-  if (usRelease && usRelease.release_dates.length > 0) {
+  if (
+    usRelease &&
+    usRelease.release_dates.length > 0 &&
+    usRelease.release_dates[0].certification
+  ) {
     certification = usRelease.release_dates[0].certification;
-  } else {
-    certification = "NA";
   }
+
   movieInfoSection.querySelector(".pg-rating").textContent = certification;
 
   movieInfoSection.querySelector(".tagline").textContent = movieDetails.tagline;
@@ -105,10 +108,69 @@ async function fetchMovieDetails(movieId) {
   ).textContent = `$${movieDetails.revenue.toLocaleString()}`;
 }
 
+async function fetchMovieCredits(movieId) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+    options
+  );
+
+  const movieCredits = await res.json();
+
+  console.log(movieCredits);
+
+  const director = movieCredits.crew.find(
+    (person) => person.job === "Director"
+  );
+
+  const jobs = movieCredits.crew
+    .filter((person) => person.name === director.name)
+    .map((person) => person.job);
+
+  document.querySelector(".movie-director h4").textContent = director.name;
+  document.querySelector(".movie-director p").textContent = jobs.join(" , ");
+
+  const cast = movieCredits.cast.slice(0, 8);
+
+  // // Cast div reference
+  // <div class="cast-card">
+  //   <img
+  //     src="https://media.themoviedb.org/t/p/w276_and_h350_face/8RZLOyYGsoRe9p44q3xin9QkMHv.jpg"
+  //     alt="Keanu Reeves"
+  //   />
+  //   <div class="cast-info">
+  //     <h4>Keanu Reeves</h4>
+  //     <p>John Wick</p>
+  //   </div>
+  // </div>
+
+  const castList = document.querySelector("#cast-list");
+  cast.forEach((actor) => {
+    const castPosterPath = actor.profile_path
+      ? `${TMDB_IMAGE_BASE_URL}${actor.profile_path}`
+      : "placeholder-poster-image.jpg";
+
+    const castCard = document.createElement("div");
+    castCard.className = "cast-card";
+
+    castCard.innerHTML = `
+      <img
+      src= "${castPosterPath}"
+      alt="Keanu Reeves"
+      />
+      <div class="cast-info">
+        <h4>${actor.name}</h4>
+        <p>${actor.character}</p>
+      </div>
+    `;
+
+    castList.appendChild(castCard);
+  });
+}
+
 async function initMoviePage(movieId) {
   await Promise.all([
     fetchMovieDetails(movieId),
-    // fetchMovieCast(movieId),
+    fetchMovieCredits(movieId),
     // fetchSimilarMovies(movieId),
   ]);
 }
