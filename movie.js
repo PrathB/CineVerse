@@ -1,11 +1,3 @@
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: `Bearer ${TMDB_API_KEY}`,
-  },
-};
-
 function convertMinutes(mins) {
   const h = Math.floor(mins / 60);
   const m = mins % 60;
@@ -99,7 +91,7 @@ async function fetchMovieDetails(movieId) {
     movieDetails.original_language;
 
   additonalInfoSection.querySelector("#origin-country").textContent =
-    movieDetails.origin_country[0];
+    movieDetails.origin_country?.[0] || "Unknown";
   additonalInfoSection.querySelector(
     "#budget"
   ).textContent = `$${movieDetails.budget.toLocaleString()}`;
@@ -116,8 +108,6 @@ async function fetchMovieCredits(movieId) {
 
   const movieCredits = await res.json();
 
-  console.log(movieCredits);
-
   const director = movieCredits.crew.find(
     (person) => person.job === "Director"
   );
@@ -131,7 +121,7 @@ async function fetchMovieCredits(movieId) {
 
   const cast = movieCredits.cast.slice(0, 8);
 
-  // // Cast div reference
+  // // Cast div structure:
   // <div class="cast-card">
   //   <img
   //     src="https://media.themoviedb.org/t/p/w276_and_h350_face/8RZLOyYGsoRe9p44q3xin9QkMHv.jpg"
@@ -155,7 +145,8 @@ async function fetchMovieCredits(movieId) {
     castCard.innerHTML = `
       <img
       src= "${castPosterPath}"
-      alt="Keanu Reeves"
+      alt="${actor.name}"
+      loading="lazy"
       />
       <div class="cast-info">
         <h4>${actor.name}</h4>
@@ -167,11 +158,60 @@ async function fetchMovieCredits(movieId) {
   });
 }
 
+async function fetchSimilarMovies(movieId) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US&page=1`,
+    options
+  );
+  const similarMoviesData = await res.json();
+
+  const similarMovies = similarMoviesData.results.slice(0, 4);
+
+  // // similar movie card structure:
+  // <div class="similar-card">
+  //   <img
+  //     src="https://media.themoviedb.org/t/p/w500/vtu6H4NWnQVqEp3aanUq3hNeeot.jpg"
+  //     alt="Movie Poster"
+  //   />
+  //   <h4 class="movie-title">Death Proof</h4>
+  //   <p class="movie-year">2003</p>
+  // </div>
+
+  const similarMoviesList = document.querySelector(".similar-list");
+
+  similarMovies.forEach((movie) => {
+    const posterPath = movie.poster_path
+      ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}`
+      : "placeholder-poster-image.jpg";
+
+    const releaseDate = new Date(movie.release_date);
+
+    const movieCard = document.createElement("div");
+    movieCard.className = "similar-card";
+
+    movieCard.innerHTML = `
+      <img
+        src="${posterPath}"
+        alt="Movie Poster"
+        loading="lazy"
+      />
+      <h4 class="movie-title">${movie.title}</h4>
+      <p class="movie-year">${releaseDate.getFullYear()}</p>
+    `;
+
+    movieCard.addEventListener("click", () => {
+      window.location.href = `movie.html?id=${movie.id}`;
+    });
+
+    similarMoviesList.appendChild(movieCard);
+  });
+}
+
 async function initMoviePage(movieId) {
   await Promise.all([
     fetchMovieDetails(movieId),
     fetchMovieCredits(movieId),
-    // fetchSimilarMovies(movieId),
+    fetchSimilarMovies(movieId),
   ]);
 }
 

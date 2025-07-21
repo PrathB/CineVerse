@@ -20,14 +20,6 @@ const endpoints = {
   ],
 };
 
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: `Bearer ${TMDB_API_KEY}`,
-  },
-};
-
 // Fetch and cache genre names
 async function fetchGenreMap() {
   try {
@@ -75,7 +67,7 @@ function renderMovies(movies, grid) {
     const genreHTML = `<div class="movie-genre">${genres}</div>`;
 
     card.innerHTML = `
-      <img src="${poster}" alt="${title}" />
+      <img src="${poster}" alt="${title}" loading="lazy" />
       <div class="movie-overlay">
         ${genreHTML}
         <div class="view-details">View Details</div>

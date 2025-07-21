@@ -296,13 +296,25 @@
   transition: border 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
-.similar-card img:hover {
+.similar-card:hover img {
   border: 6px solid var(--primary-color);
   filter: brightness(0.5);
 }
 
-.similar-card p {
+.similar-card:hover .movie-title {
+  opacity: 0.5;
+}
+
+.similar-card .movie-title {
+  cursor: pointer;
   font-size: 1.1rem;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.similar-card .movie-year {
+  font-size: 1rem;
+  color: var(--text-grey);
   text-align: center;
   word-wrap: break-word;
 }
