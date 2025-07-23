@@ -21,7 +21,6 @@ async function fetchGenreMap() {
 
 function renderMovies(movies, grid) {
   if (!grid) return;
-  grid.innerHTML = "";
 
   movies.forEach((movie) => {
     const title = movie.title;
@@ -57,4 +56,12 @@ function renderMovies(movies, grid) {
       window.location.href = `movie.html?id=${movie.id}`;
     });
   });
+}
+
+function showLoader(loader) {
+  if (loader) loader.style.display = "block";
+}
+
+function hideLoader(loader) {
+  if (loader) loader.style.display = "none";
 }

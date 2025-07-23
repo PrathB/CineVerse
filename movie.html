@@ -17,7 +17,12 @@
       <div class="header-div">
         <h1 class="header-logo">Cineverse</h1>
         <div class="searchbar">
-          <input id="searchInput" type="text" placeholder="Search movies..." autocomplete="off"/>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search movies..."
+            autocomplete="off"
+          />
           <button id="searchBtn">
             <i class="fas fa-search"></i>
           </button>
@@ -42,6 +47,9 @@
     </header>
 
     <main class="movie-details-container">
+      <div class="loader-overlay hidden">
+        <div class="loader"></div>
+      </div>
       <section class="movie-info-section">
         <div class="movie-backdrop-div"></div>
         <div class="movie-info-div">
@@ -119,6 +127,8 @@
     </main>
     <script src="config.js"></script>
     <script src="header.js"></script>
+    >
+    <script src="tmdb-utils.js"></script>
     <script src="movie.js"></script>
   </body>
 </html>

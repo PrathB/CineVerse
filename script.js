@@ -1,3 +1,5 @@
+const loaders = document.querySelectorAll(".loader");
+
 const genreMap = {};
 
 const genreUrl = `${TMDB_BASE_URL}/genre/movie/list?language=en`;
@@ -22,15 +24,23 @@ const endpoints = {
 
 // Fetch and render movies for given endpoint
 async function fetchMovies(url, containerSelector) {
+  loaders.forEach((loader) => {
+    showLoader(loader);
+  });
   try {
     const response = await fetch(url, options);
     const { results } = await response.json();
+
     renderMovies(
       results.slice(0, 8),
       document.querySelector(containerSelector)
     );
   } catch (err) {
     console.error("Fetch error:", err);
+  } finally {
+    loaders.forEach((loader) => {
+      hideLoader(loader);
+    });
   }
 }
 

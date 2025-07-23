@@ -1,4 +1,6 @@
 async function fetchSearchResults(searchQuery) {
+  const loader = document.querySelector(".loader");
+  showLoader(loader);
   try {
     const res = await fetch(
       `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=1`,
@@ -12,6 +14,8 @@ async function fetchSearchResults(searchQuery) {
     renderMovies(movies.results, grid);
   } catch (err) {
     console.error("Fetch error:", err);
+  } finally {
+    hideLoader(loader);
   }
 }
 

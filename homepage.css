@@ -31,6 +31,25 @@
   gap: 1.2rem;
 }
 
+.loader {
+  display: none; /* default hidden */
+  width: 3rem;
+  height: 3rem;
+  border: 6px solid var(--secondary-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2.5rem auto;
+
+  grid-column: 1 / -1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .movie-card {
   margin: 0.5rem 0;
   background-color: transparent;
