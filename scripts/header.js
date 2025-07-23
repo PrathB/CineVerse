@@ -1,5 +1,5 @@
 function navigateToSearchPage(searchQuery) {
-  if (searchQuery && searchQuery != "") {
+  if (searchQuery && searchQuery.trim() != "") {
     window.location.href = `search.html?query=${searchQuery}`;
   }
 }

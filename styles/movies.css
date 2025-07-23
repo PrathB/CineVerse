@@ -40,7 +40,6 @@
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 2.5rem auto;
-
   grid-column: 1 / -1;
 }
 
@@ -48,6 +47,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.no-results{
+  display: none;
+  font-size: 1.5rem;
+  margin:1rem auto;
+  grid-column: 1 / -1;
 }
 
 .movie-card {

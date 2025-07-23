@@ -9,6 +9,13 @@ async function fetchSearchResults(searchQuery) {
 
     const movies = await res.json();
 
+    if(movies.results.length === 0){
+      hideLoader(loader);
+      const noResults = document.querySelector(".no-results");
+      noResults.style.display = "block";
+      return;
+    }
+
     const grid = document.querySelector("#search-results-grid");
 
     renderMovies(movies.results, grid);
