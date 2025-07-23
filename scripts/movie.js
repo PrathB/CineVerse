@@ -30,7 +30,7 @@ async function fetchMovieDetails(movieId) {
 
     const posterPath = movieDetails.poster_path
       ? `${TMDB_IMAGE_BASE_URL}${movieDetails.poster_path}`
-      : "placeholder-poster-image.jpg";
+      : "public/placeholder-poster-image.jpg";
 
     const movieInfoSection = document.querySelector(".movie-info-section");
 
@@ -151,7 +151,7 @@ async function fetchMovieCredits(movieId) {
     cast.forEach((actor) => {
       const castPosterPath = actor.profile_path
         ? `${TMDB_IMAGE_BASE_URL}${actor.profile_path}`
-        : "placeholder-poster-image.jpg";
+        : "public/placeholder-poster-image.jpg";
 
       const castCard = document.createElement("div");
       castCard.className = "cast-card";
@@ -200,7 +200,7 @@ async function fetchSimilarMovies(movieId) {
     similarMovies.forEach((movie) => {
       const posterPath = movie.poster_path
         ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}`
-        : "placeholder-poster-image.jpg";
+        : "public/placeholder-poster-image.jpg";
 
       const releaseDate = new Date(movie.release_date);
 
