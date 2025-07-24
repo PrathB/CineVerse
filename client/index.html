@@ -8,9 +8,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="styles/base.css" />
-    <link rel="stylesheet" href="styles/header.css" />
-    <link rel="stylesheet" href="styles/movies.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/movies.css" />
   </head>
   <body>
     <header>
@@ -47,18 +47,45 @@
     </header>
 
     <main class="movie-container">
-      <section class="movie-grid-section" id="search-results-section">
-        <h2>Search Results:</h2>
+      <!-- Trending -->
+      <section class="movie-grid-section" id="trending-movies">
+        <h2>🔥 Trending</h2>
         <hr />
-        <div class="movie-grid" id="search-results-grid">
+        <div class="movie-grid" id="trending-movies-list">
           <div class="loader"></div>
-          <p class="no-results">Sorry, no movies found!</p>
+        </div>
+      </section>
+
+      <!-- Top Rated -->
+      <section class="movie-grid-section" id="top-rated-movies">
+        <h2>⭐ Top Rated</h2>
+        <hr />
+        <div class="movie-grid" id="top-rated-movies-list">
+          <div class="loader"></div>
+        </div>
+      </section>
+
+      <!-- Popular -->
+      <section class="movie-grid-section" id="popular-movies">
+        <h2>🌟 Popular</h2>
+        <hr />
+        <div class="movie-grid" id="popular-movies-list">
+          <div class="loader"></div>
+        </div>
+      </section>
+
+      <!-- Upcoming -->
+      <section class="movie-grid-section" id="upcoming">
+        <h2>⏳ Upcoming</h2>
+        <hr />
+        <div class="movie-grid" id="upcoming-movies-list">
+          <div class="loader"></div>
         </div>
       </section>
     </main>
-    <script src="scripts/config.js"></script>
-    <script src="scripts/header.js"></script>
-    <script src="scripts/tmdb-utils.js"></script>
-    <script src="scripts/search.js"></script>
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/header.js"></script>
+    <script src="./scripts/tmdb-utils.js"></script>
+    <script src="./scripts/home.js"></script>
   </body>
 </html>
