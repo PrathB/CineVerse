@@ -15,14 +15,8 @@ function hideLoaderOverlay() {
 async function fetchMovieDetails(movieId) {
   try {
     const [res1, res2] = await Promise.all([
-      fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
-        options
-      ),
-      fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}/release_dates`,
-        options
-      ),
+      fetch(`${PROXY_API_BASE_URL}/movie/${movieId}`),
+      fetch(`${PROXY_API_BASE_URL}/movie/${movieId}/release_dates`),
     ]);
 
     const movieDetails = await res1.json();
@@ -115,10 +109,7 @@ async function fetchMovieDetails(movieId) {
 
 async function fetchMovieCredits(movieId) {
   try {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
-      options
-    );
+    const res = await fetch(`${PROXY_API_BASE_URL}/movie/${movieId}/credits`);
 
     const movieCredits = await res.json();
 
@@ -177,10 +168,7 @@ async function fetchMovieCredits(movieId) {
 
 async function fetchSimilarMovies(movieId) {
   try {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US&page=1`,
-      options
-    );
+    const res = await fetch(`${PROXY_API_BASE_URL}/movie/${movieId}/similar`);
     const similarMoviesData = await res.json();
 
     const similarMovies = similarMoviesData.results.slice(0, 4);

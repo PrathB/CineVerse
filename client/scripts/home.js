@@ -2,23 +2,20 @@ const loaders = document.querySelectorAll(".loader");
 
 const genreMap = {};
 
-const genreUrl = `${TMDB_BASE_URL}/genre/movie/list?language=en`;
+const genreUrl = `${PROXY_API_BASE_URL}/genre/movie`;
 const endpoints = {
   trending: [
     "#trending-movies-list",
-    `${TMDB_BASE_URL}/trending/movie/week?language=en-US`,
+    `${PROXY_API_BASE_URL}/list/movie/trending`,
   ],
-  popular: [
-    "#popular-movies-list",
-    `${TMDB_BASE_URL}/movie/popular?language=en-US`,
-  ],
+  popular: ["#popular-movies-list", `${PROXY_API_BASE_URL}/list/movie/popular`],
   topRated: [
     "#top-rated-movies-list",
-    `${TMDB_BASE_URL}/movie/top_rated?language=en-US`,
+    `${PROXY_API_BASE_URL}/list/movie/top_rated`,
   ],
   upcoming: [
     "#upcoming-movies-list",
-    `${TMDB_BASE_URL}/movie/upcoming?language=en-US`,
+    `${PROXY_API_BASE_URL}/list/movie/upcoming`,
   ],
 };
 
@@ -28,7 +25,7 @@ async function fetchMovies(url, containerSelector) {
     showLoader(loader);
   });
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(url);
     const { results } = await response.json();
 
     renderMovies(

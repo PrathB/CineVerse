@@ -3,13 +3,12 @@ async function fetchSearchResults(searchQuery) {
   showLoader(loader);
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=1`,
-      options
+      `${PROXY_API_BASE_URL}/search/movie?query=${searchQuery}`
     );
 
     const movies = await res.json();
 
-    if(movies.results.length === 0){
+    if (movies.results.length === 0) {
       hideLoader(loader);
       const noResults = document.querySelector(".no-results");
       noResults.style.display = "block";
