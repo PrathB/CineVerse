@@ -27,7 +27,7 @@ function renderMovies(movies, grid) {
     const year = movie.release_date?.split("-")[0] || "N/A";
     const poster = movie.poster_path
       ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}`
-      : "public/placeholder-poster-image.jpg";
+      : "./assets/placeholder-poster-image.jpg";
 
     const card = document.createElement("div");
     card.className = "movie-card";
