@@ -29,6 +29,20 @@ router.get("/:movieId/release_dates", async (req, res) => {
   }
 });
 
+router.get("/:movieId/credits", async (req, res) => {
+  try {
+    const { movieId } = req.params;
+    const { language = "en-US" } = req.query;
+    if (!movieId) {
+      return res.status(400).json({ error: "Movie ID is required" });
+    }
+    const data = await makeRequest(`/movie/${movieId}/credits`, { language });
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 router.get("/:movieId/similar", async (req, res) => {
   try {
     const { movieId } = req.params;
