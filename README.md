@@ -12,6 +12,19 @@ Try it out here: [cineverse-moviehub.vercel.app](https://cineverse-moviehub.verc
 
 ---
 
+## 📸 Screenshots
+
+### 🎬 Homepage 
+![Homepage Screenshot](screenshots/homepage.png)
+
+### 🔍 Search Page
+![Search Page Screenshot](screenshots/search.png)
+
+### 🎥 Movie Details Page
+![Movie Details Screenshot](screenshots/movie-details.png)
+
+---
+
 ##  Project Structure
 
 ```
@@ -161,6 +174,18 @@ The frontend requests data from backend proxy using the following endpoints:
 3. Open index.html in your web browser
    
 ---
-   
 
+## Deployment
+- Frontend: Deployed to Vercel
+    - Root: client/
 
+- Backend: Deployed to Render
+    - Root: server/
+    - Start command: npm start
+
+---
+
+## License
+MIT — feel free to use and customize!
+
+---
