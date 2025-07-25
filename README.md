@@ -17,34 +17,35 @@
 
 ```
 CineVerse/
-  client/
-    assets/
-      placeholder-poster-image.jpg
-    index.html
-    movie.html
-    search.html
-    scripts/
-      config.js
-      header.js
-      home.js
-      movie.js
-      search.js
-      tmdb-utils.js
-    styles/
-      base.css
-      header.css
-      movie-details.css
-      movies.css
-  README.md
-  server/
-    index.js
-    package-lock.json
-    package.json
-    routes/
-      genre.js
-      movie-list.js
-      movie.js
-      search.js
-    utils/
-      tmdbClient.js
+├── client/   # Frontend static site (HTML, CSS, JS)
+│ ├── assets/
+│ │ └── placeholder-poster-image.jpg   # Fallback image for missing posters
+│ ├── index.html    # Homepage displaying trending, popular, top-rated, and upcoming movies
+│ ├── movie.html    # Movie details page
+│ ├── search.html   # Search results page
+│ ├── scripts/
+│ │ ├── config.js     # Stores base URLs and endpoint paths
+│ │ ├── header.js     # Script for search header behavior
+│ │ ├── home.js       # Handles homepage movie sections
+│ │ ├── movie.js      # Handles movie details rendering
+│ │ ├── search.js     # Handles search results rendering
+│ │ └── tmdb-utils.js # Contains utility functions for API calls to proxy server
+│ └── styles/
+│ ├── base.css          # Global styles
+│ ├── header.css        # Styles for the header/search bar
+│ ├── movie-details.css # Styles for movie.html layout
+│ └── movies.css        # Grid layout styling for movie cards
+├── README.md   # Project documentation
+├── server/     # Node.js reverse proxy backend
+│ ├── index.js           # Main server file to start Express app
+│ ├── package.json       # Node dependencies and metadata
+│ ├── package-lock.json  # Exact versions of installed dependencies
+│ ├── routes/
+│ │ ├── genre.js        # API route for fetching genres
+│ │ ├── movie-list.js   # API route for movie lists (popular, trending, etc.)
+│ │ ├── movie.js        # API route for movie details
+│ │ └── search.js       # API route for searching movies
+│ └── utils/
+│ └── tmdbClient.js   # Axios setup with retries and TMDB token handling
+└── .gitignore     # Specifies files/folders to ignore in Git
 ```
