@@ -2,7 +2,6 @@
 
 **Cineverse** is a fully responsive movie discovery web app built using HTML, CSS, and JavaScript, powered by [The Movie Database (TMDB)](https://www.themoviedb.org/) API. It features a secure Node.js reverse proxy server to handle API requests and keep the TMDB token hidden from the frontend.
 
-<br>
 
 ##  Live Demo
 
@@ -12,17 +11,19 @@ Try it out here: [cineverse-moviehub.vercel.app](https://cineverse-moviehub.verc
 
 ---
 
+<br>
+
 ## Screenshots
 
 ###  Homepage 
 ![Homepage Screenshot](screenshots/homepage.png)
 
-
+<br>
 
 ###  Search Page
 ![Search Page Screenshot](screenshots/search.png)
 
-
+<br>
 
 ###  Movie Details Page
 ![Movie Details Screenshot](screenshots/movie-details.png)
