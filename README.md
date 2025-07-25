@@ -9,7 +9,6 @@ Try it out here: [cineverse-moviehub.vercel.app](https://cineverse-moviehub.verc
 
 >  The frontend interacts **only** with the proxy server. TMDB credentials are never exposed to the client.
 
----
 
 <br>
 
@@ -28,7 +27,6 @@ Try it out here: [cineverse-moviehub.vercel.app](https://cineverse-moviehub.verc
 ###  Movie Details Page
 ![Movie Details Screenshot](screenshots/movie-details.png)
 
----
 
 ##  Project Structure
 
@@ -66,7 +64,7 @@ CineVerse/
 │ └── tmdbClient.js   # Axios setup with retries and TMDB token handling
 └── .gitignore     # Specifies files/folders to ignore in Git
 ```
----
+
 
 ## Features
 - ### Movie Data Powered by TMDB
@@ -90,7 +88,7 @@ CineVerse/
 - ### Responsive Design
   Fully responsive UI that works seamlessly on desktop and mobile devices.
 
----
+
 
 ## Technologies Used
 
@@ -105,7 +103,7 @@ CineVerse/
 - Axios + Axios Retry
 - Hosted on **Render**
 
----
+
 
 ##  API Proxy Endpoints
 
@@ -130,7 +128,7 @@ The frontend requests data from backend proxy using the following endpoints:
 ###  Genres
 - `GET /api/genre/movie` — Get the official list of movie genres (with name and id) from TMDB
 
----
+
 
 ##  Getting Started
 ### Local Setup
@@ -178,7 +176,6 @@ The frontend requests data from backend proxy using the following endpoints:
    ```
 3. Open index.html in your web browser
    
----
 
 ## Deployment
 - Frontend: Deployed to Vercel
@@ -188,9 +185,13 @@ The frontend requests data from backend proxy using the following endpoints:
     - Root: server/
     - Start command: npm start
 
----
+
+## Credits
+- [TMDB](https://www.themoviedb.org/). This product uses the TMDB API but is not endorsed or certified by TMDB.
+- [Font Awesome](https://fontawesome.com/) for iproviding icons.
+
 
 ## License
 MIT — feel free to use and customize!
 
----
+
