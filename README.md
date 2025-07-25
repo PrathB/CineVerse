@@ -21,9 +21,7 @@ Try it out here: [cineverse-moviehub.vercel.app](https://cineverse-moviehub.verc
 ![Search Page Screenshot](screenshots/search.png)
 
 ### 🎥 Movie Details Page
-![Movie Details Screenshot 1](screenshots/movie-details1.png)
-![Movie Details Screenshot 2](screenshots/movie-details2.png)
-![Movie Details Screenshot 3](screenshots/movie-details3.png)
+![Movie Details Screenshot](screenshots/movie-details.png)
 
 ---
 
