@@ -4,16 +4,15 @@
 
 <br>
 
-## 🌐 Live Demo
+##  Live Demo
 
-- **Frontend (Vercel)**: [[cineverse-moviehub.vercel.app](https://cineverse-moviehub.vercel.app/)]  
-- **Backend (Render)**: [[cineverse-server.onrender.com](https://cineverse-reverse-proxy.onrender.com)]
+Try it out here: [cineverse-moviehub.vercel.app](https://cineverse-moviehub.vercel.app/) 
 
-> 🔒 The frontend interacts **only** with the proxy server. TMDB credentials are never exposed to the client.
+>  The frontend interacts **only** with the proxy server. TMDB credentials are never exposed to the client.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 CineVerse/
@@ -52,29 +51,64 @@ CineVerse/
 ---
 
 ## Features
+- ### Movie Data Powered by TMDB
+  Displays trending, top-rated, popular, and upcoming movies using The Movie Database (TMDB) API.
+- ### Search Functionality
+  Search for movies by title and view results in a responsive grid layout.
+- ### Detailed Movie Pages
+  View complete movie details including:
+  -Poster and backdrop images
+  -Title, release year, tagline, genres, runtime, and PG certification
+  -User score, overview, and director
+  -Cast (with profile pictures and character names)
+  -Similar movies
 
-### Homepage (`index.html`)
-- Displays **Trending**, **Popular**, **Top Rated**, and **Upcoming** movies in a grid layout.
-- Styled using `movies.css`.
+- ### Reverse Proxy Server (Node.js)
+  A backend server acts as a reverse proxy to:
+  - Hide TMDB API Bearer token
+  - Retry failed requests using exponential backoff (axios-retry)
+  - Prevent CORS issues on the frontend
 
-### Search Page (`search.html`)
-- Shows search results in a responsive grid layout.
-- Also uses `movies.css`.
-
-### Movie Details Page (`movie.html`)
-Displays comprehensive details of a selected movie:
-- Poster & backdrop  
-- Title, release year, runtime, genre, and PG certification  
-- User score and tagline  
-- Overview, director, and full cast (with pictures, names, and characters)  
-- Similar movies section  
-- Styled with `movie-details.css`
-
-### Proxy Server (Node.js)
-- Built with **Express**
-- Uses **Axios** to call TMDB API
-- Includes **Axios Retry** with exponential backoff to improve reliability
-- Ensures API key is never exposed to the frontend
+- ### Responsive Design
+  Fully responsive UI that works seamlessly on desktop and mobile devices.
 
 ---
+
+## Technologies Used
+
+### Frontend:
+- HTML5, CSS3
+- JavaScript (Vanilla)
+- Hosted on **Vercel**
+
+### Backend:
+- Node.js
+- Express
+- Axios + Axios Retry
+- Hosted on **Render**
+
+---
+
+##  API Proxy Endpoints
+
+The backend server proxies requests to the TMDB API using the following endpoints:
+
+###  Movies
+- `GET /api/movie/:movieId` — Get full details of a movie by ID
+- `GET /api/movie/:movieId/release_dates` — Get release dates and certification for different regions of a movie
+- `GET /api/movie/:movieId/credits` — Get cast and crew details
+- `GET /api/movie/:movieId/similar` — Get a list of similar movies
+
+###  Lists
+- `GET /api/list/movie/trending` — Get a list of trending movies
+- `GET /api/list/movie/popular` — Get a list of popular movies
+- `GET /api/list/movie/top_rated` — Get a list of top rated movies
+- `GET /api/list/movie/upcoming` — Get a list of upcoming movies
+
+
+###  Search
+- `GET /api/search/movie?query` — Search movies by keyword
+
+###  Genres
+- `GET /api/genre/movie` — Get the official list of movie genres (with name and id) from TMDB
 
