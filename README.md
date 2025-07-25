@@ -6,8 +6,7 @@
 
 ##  Live Demo
 
-- **Frontend (Vercel)**: [[cineverse-moviehub.vercel.app](https://cineverse-moviehub.vercel.app/)]  
-- **Backend (Render)**: [[cineverse-server.onrender.com](https://cineverse-reverse-proxy.onrender.com)]
+Try it out here: [[cineverse-moviehub.vercel.app](https://cineverse-moviehub.vercel.app/)]  
 
 >  The frontend interacts **only** with the proxy server. TMDB credentials are never exposed to the client.
 
@@ -52,11 +51,11 @@ CineVerse/
 ---
 
 ## Features
-- Movie Data Powered by TMDB
+- ### Movie Data Powered by TMDB
   Displays trending, top-rated, popular, and upcoming movies using The Movie Database (TMDB) API.
-- Search Functionality
+- ### Search Functionality
   Search for movies by title and view results in a responsive grid layout.
-- Detailed Movie Pages
+- ### Detailed Movie Pages
   View complete movie details including:
   -Poster and backdrop images
   -Title, release year, tagline, genres, runtime, and PG certification
@@ -64,14 +63,29 @@ CineVerse/
   -Cast (with profile pictures and character names)
   -Similar movies
 
-- Reverse Proxy Server (Node.js)
+- ### Reverse Proxy Server (Node.js)
   A backend server acts as a reverse proxy to:
   - Hide TMDB API Bearer token
   - Retry failed requests using exponential backoff (axios-retry)
   - Prevent CORS issues on the frontend
 
-- Responsive Design
+- ### Responsive Design
   Fully responsive UI that works seamlessly on desktop and mobile devices.
+
+---
+
+## Technologies Used
+
+### Frontend:
+- HTML5, CSS3
+- JavaScript (Vanilla)
+- Hosted on **Vercel**
+
+### Backend:
+- Node.js
+- Express
+- Axios + Axios Retry
+- Hosted on **Render**
 
 ---
 
