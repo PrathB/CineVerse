@@ -49,3 +49,32 @@ CineVerse/
 │ └── tmdbClient.js   # Axios setup with retries and TMDB token handling
 └── .gitignore     # Specifies files/folders to ignore in Git
 ```
+---
+
+## Features
+
+### Homepage (`index.html`)
+- Displays **Trending**, **Popular**, **Top Rated**, and **Upcoming** movies in a grid layout.
+- Styled using `movies.css`.
+
+### Search Page (`search.html`)
+- Shows search results in a responsive grid layout.
+- Also uses `movies.css`.
+
+### Movie Details Page (`movie.html`)
+Displays comprehensive details of a selected movie:
+- Poster & backdrop  
+- Title, release year, runtime, genre, and PG certification  
+- User score and tagline  
+- Overview, director, and full cast (with pictures, names, and characters)  
+- Similar movies section  
+- Styled with `movie-details.css`
+
+### Proxy Server (Node.js)
+- Built with **Express**
+- Uses **Axios** to call TMDB API
+- Includes **Axios Retry** with exponential backoff to improve reliability
+- Ensures API key is never exposed to the frontend
+
+---
+
