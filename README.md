@@ -188,7 +188,7 @@ The frontend requests data from backend proxy using the following endpoints:
 
 ## Credits
 - [TMDB](https://www.themoviedb.org/). This product uses the TMDB API but is not endorsed or certified by TMDB.
-- [Font Awesome](https://fontawesome.com/) for iproviding icons.
+- [Font Awesome](https://fontawesome.com/) for providing icons.
 
 
 ## License
