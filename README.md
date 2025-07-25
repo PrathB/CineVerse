@@ -12,15 +12,19 @@ Try it out here: [cineverse-moviehub.vercel.app](https://cineverse-moviehub.verc
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-### 🎬 Homepage 
+###  Homepage 
 ![Homepage Screenshot](screenshots/homepage.png)
 
-### 🔍 Search Page
+
+
+###  Search Page
 ![Search Page Screenshot](screenshots/search.png)
 
-### 🎥 Movie Details Page
+
+
+###  Movie Details Page
 ![Movie Details Screenshot](screenshots/movie-details.png)
 
 ---
