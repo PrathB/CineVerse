@@ -6,7 +6,7 @@ async function fetchGenreMap() {
   }
 
   try {
-    const response = await fetch(genreUrl, options);
+    const response = await fetch(genreUrl);
     const data = await response.json();
     data.genres.forEach(({ id, name }) => {
       genreMap[id] = name;
