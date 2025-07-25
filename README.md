@@ -6,7 +6,7 @@
 
 ##  Live Demo
 
-Try it out here: [[cineverse-moviehub.vercel.app](https://cineverse-moviehub.vercel.app/)]  
+Try it out here: [cineverse-moviehub.vercel.app](https://cineverse-moviehub.vercel.app/) 
 
 >  The frontend interacts **only** with the proxy server. TMDB credentials are never exposed to the client.
 
@@ -88,4 +88,27 @@ CineVerse/
 - Hosted on **Render**
 
 ---
+
+##  API Proxy Endpoints
+
+The backend server proxies requests to the TMDB API using the following endpoints:
+
+###  Movies
+- `GET /api/movie/:movieId` — Get full details of a movie by ID
+- `GET /api/movie/:movieId/release_dates` — Get release dates and certification for different regions of a movie
+- `GET /api/movie/:movieId/credits` — Get cast and crew details
+- `GET /api/movie/:movieId/similar` — Get a list of similar movies
+
+###  Lists
+- `GET /api/list/movie/trending` — Get a list of trending movies
+- `GET /api/list/movie/popular` — Get a list of popular movies
+- `GET /api/list/movie/top_rated` — Get a list of top rated movies
+- `GET /api/list/movie/upcoming` — Get a list of upcoming movies
+
+
+###  Search
+- `GET /api/search/movie?query` — Search movies by keyword
+
+###  Genres
+- `GET /api/genre/movie` — Get the official list of movie genres (with name and id) from TMDB
 
