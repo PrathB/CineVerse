@@ -15,8 +15,8 @@ function hideLoaderOverlay() {
 async function fetchMovieDetails(movieId) {
   try {
     const [res1, res2] = await Promise.all([
-      fetch(`${PROXY_API_BASE_URL}/movie/${movieId}`),
-      fetch(`${PROXY_API_BASE_URL}/movie/${movieId}/release_dates`),
+      fetch(`${PROXY_API_BASE_URL}/api/movie/${movieId}`),
+      fetch(`${PROXY_API_BASE_URL}/api/movie/${movieId}/release_dates`),
     ]);
 
     const movieDetails = await res1.json();
@@ -109,7 +109,7 @@ async function fetchMovieDetails(movieId) {
 
 async function fetchMovieCredits(movieId) {
   try {
-    const res = await fetch(`${PROXY_API_BASE_URL}/movie/${movieId}/credits`);
+    const res = await fetch(`${PROXY_API_BASE_URL}/api/movie/${movieId}/credits`);
 
     const movieCredits = await res.json();
 
@@ -168,7 +168,7 @@ async function fetchMovieCredits(movieId) {
 
 async function fetchSimilarMovies(movieId) {
   try {
-    const res = await fetch(`${PROXY_API_BASE_URL}/movie/${movieId}/similar`);
+    const res = await fetch(`${PROXY_API_BASE_URL}/api/movie/${movieId}/similar`);
     const similarMoviesData = await res.json();
 
     const similarMovies = similarMoviesData.results.slice(0, 4);

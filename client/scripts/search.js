@@ -3,7 +3,7 @@ async function fetchSearchResults(searchQuery) {
   showLoader(loader);
   try {
     const res = await fetch(
-      `${PROXY_API_BASE_URL}/search/movie?query=${searchQuery}`
+      `${PROXY_API_BASE_URL}/api/search/movie?query=${searchQuery}`
     );
 
     const movies = await res.json();

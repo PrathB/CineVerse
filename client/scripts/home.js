@@ -2,20 +2,20 @@ const loaders = document.querySelectorAll(".loader");
 
 const genreMap = {};
 
-const genreUrl = `${PROXY_API_BASE_URL}/genre/movie`;
+const genreUrl = `${PROXY_API_BASE_URL}/api/genre/movie`;
 const endpoints = {
   trending: [
     "#trending-movies-list",
-    `${PROXY_API_BASE_URL}/list/movie/trending`,
+    `${PROXY_API_BASE_URL}/api/list/movie/trending`,
   ],
-  popular: ["#popular-movies-list", `${PROXY_API_BASE_URL}/list/movie/popular`],
+  popular: ["#popular-movies-list", `${PROXY_API_BASE_URL}/api/list/movie/popular`],
   topRated: [
     "#top-rated-movies-list",
-    `${PROXY_API_BASE_URL}/list/movie/top_rated`,
+    `${PROXY_API_BASE_URL}/api/list/movie/top_rated`,
   ],
   upcoming: [
     "#upcoming-movies-list",
-    `${PROXY_API_BASE_URL}/list/movie/upcoming`,
+    `${PROXY_API_BASE_URL}/api/list/movie/upcoming`,
   ],
 };
 
