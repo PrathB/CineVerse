@@ -91,7 +91,7 @@ CineVerse/
 
 ##  API Proxy Endpoints
 
-The backend server proxies requests to the TMDB API using the following endpoints:
+The frontend requests data from backend proxy using the following endpoints:
 
 ###  Movies
 - `GET /api/movie/:movieId` — Get full details of a movie by ID
@@ -111,4 +111,56 @@ The backend server proxies requests to the TMDB API using the following endpoint
 
 ###  Genres
 - `GET /api/genre/movie` — Get the official list of movie genres (with name and id) from TMDB
+
+---
+
+##  Getting Started
+### Local Setup
+
+ **Open a terminal and clone the repo**
+  ```shell
+  git clone https://github.com/PrathB/CineVerse
+  cd CineVerse
+  ```
+
+###  Backend (Proxy Server)
+1. Navigate to the server directory:
+   ```shell
+   cd server
+   ```
+2. Install dependencies:
+   ```shell
+   npm install
+   ```
+3. Create a .env file:
+   ```shell
+   touch .env
+   ```
+   Add your TMDB API read access token in the .env file:
+   ```shell
+   TMDB_API_BEARER_TOKEN=your_tmdb_bearer_token
+   ```
+   Add a port number in the .env file (optional):
+   ```shell
+   PORT = 3001
+   ```
+4. Start the server locally:
+   ```shell
+   npm start
+   ```
+
+### Frontend (Static Website)
+1. Navigate to the client directory:
+   ```shell
+   cd ../client
+   ```
+2. Add your local deployed server url in `config.js`:
+   ```shell
+   const PROXY_API_BASE_URL = "localhost:3001";
+   ```
+3. Open index.html in your web browser
+   
+---
+   
+
 
