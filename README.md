@@ -33,8 +33,8 @@ CineVerse/
 │ └── styles/
 │ ├── base.css          # Global styles
 │ ├── header.css        # Styles for the header/search bar
-│ ├── movie-details.css # Styles for movie.html layout
-│ └── movies.css        # Grid layout styling for movie cards
+│ ├── movie-details.css # Styles for movie details page (movie.html)
+│ └── movies.css        # Grid layout styling for movie gird and cards
 ├── README.md   # Project documentation
 ├── server/     # Node.js reverse proxy backend
 │ ├── index.js           # Main server file to start Express app
